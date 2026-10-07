@@ -211,7 +211,7 @@ In Code Anatomy's side panel → **Settings** → paste the key → **Save**
 
 | Panel | What You Get |
 |-------|-------------|
-| **HTML** | Full outer HTML, syntax-highlighted and pretty-printed |
+| **HTML** | Full outer HTML, syntax-highlighting, and full-component Export to Sandbox |
 | **CSS** | Matched rules, inline styles, computed styles, pseudo-class forcing |
 | **JavaScript** | Event listeners, DOM queries, manipulations, React props |
 | **AI ✦** | One-click AI summary + follow-up chat about any element |
