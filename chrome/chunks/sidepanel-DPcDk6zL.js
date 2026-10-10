@@ -233,7 +233,17 @@ Keep it brief — 3-5 short paragraphs max. Use code backticks for class names a
           ${n.fontVariationSettings}
         </div>
       </div>
-    `),r+=`</div>`,t.innerHTML=r}function Et(e){let t=document.getElementById(`a11y-panel`)?.querySelector(`.panel-body`);if(!t)return;if(!e.a11yData){t.innerHTML=`<p class="empty-state">Accessibility data not available.</p>`;return}let{role:n,ariaAttributes:r,alt:i,tabIndex:a,isFocusable:o,contrastRatio:s}=e.a11yData,c=`<div style="display: flex; flex-direction: column; gap: 16px;">`;if(c+=`
+    `),r+=`</div>`,t.innerHTML=r}function Et(e){let t=document.getElementById(`a11y-panel`)?.querySelector(`.panel-body`);if(!t)return;if(!e.a11yData){t.innerHTML=`<p class="empty-state">Accessibility data not available.</p>`;return}let{role:n,ariaAttributes:r,alt:i,tabIndex:a,isFocusable:o,contrastRatio:s,warnings:c}=e.a11yData,l=`<div style="display: flex; flex-direction: column; gap: 16px;">`;if(c&&c.length>0&&(l+=`
+      <div style="background: rgba(224, 108, 117, 0.1); padding: 12px; border-radius: 6px; border: 1px solid #E06C75; border-left: 4px solid #E06C75;">
+        <span style="color: #E06C75; font-size: 12px; font-weight: bold; text-transform: uppercase; display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          Accessibility Warnings
+        </span>
+        <ul style="margin: 0; padding-left: 20px; color: var(--text-primary); font-size: 13px; display: flex; flex-direction: column; gap: 4px;">
+          ${c.map(e=>`<li>${e}</li>`).join(``)}
+        </ul>
+      </div>
+    `),l+=`
     <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 6px; border: 1px solid var(--border);">
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
         <div>
@@ -250,7 +260,7 @@ Keep it brief — 3-5 short paragraphs max. Use code backticks for class names a
         </div>
       </div>
     </div>
-  `,s!==null){let e=`#E06C75`,t=`Fails WCAG AA (Target: 4.5:1)`;s>=7?(e=`#6EE7B7`,t=`Passes WCAG AAA`):s>=4.5&&(e=`#E5C07B`,t=`Passes WCAG AA`),c+=`
+  `,s!==null){let e=`#E06C75`,t=`Fails WCAG AA (Target: 4.5:1)`;s>=7?(e=`#6EE7B7`,t=`Passes WCAG AAA`):s>=4.5&&(e=`#E5C07B`,t=`Passes WCAG AA`),l+=`
       <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 6px; border: 1px solid var(--border);">
         <span style="color: var(--text-secondary); font-size: 11px; text-transform: uppercase;">Contrast Ratio</span>
         <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 4px;">
@@ -262,27 +272,27 @@ Keep it brief — 3-5 short paragraphs max. Use code backticks for class names a
           </div>
         </div>
       </div>
-    `}(e.tagName===`img`||e.tagName===`area`)&&(c+=`
+    `}(e.tagName===`img`||e.tagName===`area`)&&(l+=`
       <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 6px; border: 1px solid var(--border);">
         <span style="color: var(--text-secondary); font-size: 11px; text-transform: uppercase;">Alt Text</span>
         <div style="font-family: var(--font-mono); color: var(--syntax-value); margin-top: 4px; word-break: break-word;">
           ${i===null?`<span style="color: #E06C75;">Missing (Violation)</span>`:`"${i}"`}
         </div>
       </div>
-    `);let l=Object.keys(r);if(l.length>0){c+=`
+    `);let u=Object.keys(r);if(u.length>0){l+=`
       <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 6px; border: 1px solid var(--border);">
         <span style="color: var(--text-secondary); font-size: 11px; text-transform: uppercase; margin-bottom: 8px; display: block;">ARIA Attributes</span>
         <div style="display: flex; flex-direction: column; gap: 6px;">
-    `;for(let e of l)c+=`
+    `;for(let e of u)l+=`
         <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px;">
           <span style="color: var(--syntax-attr);">${e}</span>
           <span style="color: var(--syntax-value);">"${r[e]}"</span>
         </div>
-      `;c+=`</div></div>`}else c+=`
+      `;l+=`</div></div>`}else l+=`
       <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 6px; border: 1px solid var(--border); text-align: center; color: var(--text-secondary); font-size: 12px; font-style: italic;">
         No ARIA attributes found.
       </div>
-    `;c+=`</div>`,t.innerHTML=c}function Dt(e){let t=document.getElementById(`animation-panel`)?.querySelector(`.panel-body`);if(!t)return;if(!e.animationData){t.innerHTML=`<p class="empty-state">Animation data not available.</p>`;return}let n=e.animationData;if(!n.hasAnimations){t.innerHTML=`
+    `;l+=`</div>`,t.innerHTML=l}function Dt(e){let t=document.getElementById(`animation-panel`)?.querySelector(`.panel-body`);if(!t)return;if(!e.animationData){t.innerHTML=`<p class="empty-state">Animation data not available.</p>`;return}let n=e.animationData;if(!n.hasAnimations){t.innerHTML=`
       <div style="text-align: center; color: var(--text-secondary); font-size: 13px; padding: 24px 0; font-style: italic;">
         No active animations or transitions detected on this element.
       </div>
@@ -315,4 +325,12 @@ Keep it brief — 3-5 short paragraphs max. Use code backticks for class names a
         <span style="color: var(--syntax-value); word-break: break-all;">${n.cssProperties.transition}</span>
       </div>
     </div>
-  `,r+=`</div>`,t.innerHTML=r}document.addEventListener(`DOMContentLoaded`,async()=>{kt(),xt(),u.runtime.onMessage.addListener(e=>{e.type===`ELEMENT_SELECTED`&&Ot(e.payload)}),u.runtime.sendMessage({type:`GET_LAST_SELECTED`}).then(e=>{e&&e.payload&&Ot(e.payload)}).catch(()=>{})});function Ot(e){let t=document.getElementById(`selected-element-name`);t&&(t.innerHTML=`&lt;${e.tagName}&gt;${e.id?`<span style="color: var(--syntax-attr)">#${e.id}</span>`:``}`);let n=document.getElementById(`selected-element-attrs`);n&&(n.textContent=e.classes.length>0?`class="${e.classes.join(` `)}"`:``),document.querySelectorAll(`.empty-state`).forEach(e=>{e.parentElement?.closest(`#ai-panel`)||e.classList.add(`hidden`)}),m(e),g(e),_(e,e.listeners||[]),St(e),Tt(e),Et(e),Dt(e)}function kt(){let e=document.getElementById(`settings-modal`),t=document.getElementById(`settings-btn`),n=document.getElementById(`close-settings-btn`),r=document.getElementById(`save-settings-btn`),i=document.getElementById(`gemini-api-key`),a=document.getElementById(`show-fab-toggle`);o.getItem(`local:geminiApiKey`).then(e=>{e&&i&&(i.value=e)}),o.getItem(`local:showFloatingButton`).then(e=>{e!==null&&a&&(a.checked=e)}),t?.addEventListener(`click`,()=>e?.classList.remove(`hidden`)),n?.addEventListener(`click`,()=>e?.classList.add(`hidden`)),r?.addEventListener(`click`,async()=>{i&&await o.setItem(`local:geminiApiKey`,i.value.trim()),a&&await o.setItem(`local:showFloatingButton`,a.checked),e?.classList.add(`hidden`)}),e?.addEventListener(`click`,t=>{t.target===e&&e.classList.add(`hidden`)})}
+  `,r+=`</div>`,t.innerHTML=r}function Ot(e){let t=document.getElementById(`color-panel`)?.querySelector(`.panel-body`);if(!t)return;if(!e.colorPalette||e.colorPalette.length===0){t.innerHTML=`<p class="empty-state">No colors detected.</p>`;return}let n=`<div class="color-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px;">`;for(let t of e.colorPalette)n+=`
+      <div class="color-swatch-card" style="background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; transition: border-color 0.15s ease;" title="Click to copy" data-color="${t}">
+        <div class="color-swatch-display" style="height: 48px; background-color: ${t}; width: 100%;"></div>
+        <div style="padding: 8px; display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-primary); text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">${t}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--text-secondary);"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        </div>
+      </div>
+    `;n+=`</div>`,t.innerHTML=n,t.querySelectorAll(`.color-swatch-card`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.getAttribute(`data-color`);if(t){navigator.clipboard.writeText(t);let n=e.querySelector(`span`);if(n){let e=n.textContent;n.textContent=`Copied!`,n.style.color=`#6EE7B7`,setTimeout(()=>{n.textContent=e,n.style.color=`var(--text-primary)`},1e3)}}})})}document.addEventListener(`DOMContentLoaded`,async()=>{At(),xt(),u.runtime.onMessage.addListener(e=>{e.type===`ELEMENT_SELECTED`&&kt(e.payload)}),u.runtime.sendMessage({type:`GET_LAST_SELECTED`}).then(e=>{e&&e.payload&&kt(e.payload)}).catch(()=>{})});function kt(e){let t=document.getElementById(`selected-element-name`);t&&(t.innerHTML=`&lt;${e.tagName}&gt;${e.id?`<span style="color: var(--syntax-attr)">#${e.id}</span>`:``}`);let n=document.getElementById(`selected-element-attrs`);n&&(n.textContent=e.classes.length>0?`class="${e.classes.join(` `)}"`:``),document.querySelectorAll(`.empty-state`).forEach(e=>{e.parentElement?.closest(`#ai-panel`)||e.classList.add(`hidden`)}),m(e),g(e),_(e,e.listeners||[]),St(e),Tt(e),Et(e),Dt(e),Ot(e)}function At(){let e=document.getElementById(`settings-modal`),t=document.getElementById(`settings-btn`),n=document.getElementById(`close-settings-btn`),r=document.getElementById(`save-settings-btn`),i=document.getElementById(`gemini-api-key`),a=document.getElementById(`show-fab-toggle`);o.getItem(`local:geminiApiKey`).then(e=>{e&&i&&(i.value=e)}),o.getItem(`local:showFloatingButton`).then(e=>{e!==null&&a&&(a.checked=e)}),t?.addEventListener(`click`,()=>e?.classList.remove(`hidden`)),n?.addEventListener(`click`,()=>e?.classList.add(`hidden`)),r?.addEventListener(`click`,async()=>{i&&await o.setItem(`local:geminiApiKey`,i.value.trim()),a&&await o.setItem(`local:showFloatingButton`,a.checked),e?.classList.add(`hidden`)}),e?.addEventListener(`click`,t=>{t.target===e&&e.classList.add(`hidden`)})}
