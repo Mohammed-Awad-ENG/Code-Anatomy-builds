@@ -17,7 +17,7 @@
 
 <br/>
 
-> This repository contains **pre-built, ready-to-install** versions of [**Code Anatomy**](https://github.com/Mohammed-Awad-ENG/Code-Anatomy) — the browser extension that gives you X-ray vision for any web page. **No building, no Node.js, no terminal required.** Just download and load.
+> This repository contains **pre-built, ready-to-install** versions of [**Code Anatomy**](https://github.com/Mohammed-Awad-ENG/Code-Anatomy) — the browser extension that gives you X-ray vision for any web page with HTML inspection, CSS rules, color palette extraction, accessibility warnings, JavaScript tracking, and AI explanations in collapsible panels. **No building, no Node.js, no terminal required.** Just download and load.
 >
 > 🔗 **Looking for the source code?** Visit the [main repository](https://github.com/Mohammed-Awad-ENG/Code-Anatomy).
 
@@ -207,14 +207,28 @@ In Code Anatomy's side panel → **Settings** → paste the key → **Save**
 
 1. **Activate** — Click the Code Anatomy toolbar icon, press `Alt + C`, or right-click any element → *"Inspect with Code Anatomy"*
 2. **Select** — Hover over elements (they highlight in blue) and click one
-3. **Explore** — The side panel opens with 4 tabs:
+3. **Explore** — The side panel opens with collapsible accordion sections:
 
 | Panel | What You Get |
-|-------|-------------|
-| **HTML** | Full outer HTML, syntax-highlighting, and full-component Export to Sandbox |
-| **CSS** | Matched rules, inline styles, computed styles, pseudo-class forcing |
-| **JavaScript** | Event listeners, DOM queries, manipulations, React props |
-| **AI ✦** | One-click AI summary + follow-up chat about any element |
+|---|---|
+| **HTML** | Full outer HTML, syntax-highlighting, and full-component Export to Sandbox (CodePen) |
+| **CSS** | Matched rules, inline styles, computed styles, pseudo-class forcing (`:hover`, `:focus`, etc.) |
+| **Colors** | 🌈 **Color Palette Extractor**: Deep tree-walking color extraction across the element and descendants with one-click copy |
+| **JavaScript** | Event listeners, DOM access tracking, live mutations, React props |
+| **AI ✦** | One-click AI summary + follow-up chat powered by Google Gemini Flash |
+| **Typography** | Font family, computed size, weight, line-height, and letter-spacing |
+| **Accessibility** | ♿ WCAG contrast ratio evaluation and **Missing Attribute Warnings** (missing alt tags, unlabeled inputs, empty links/buttons) |
+| **Animations** | Active CSS transitions, keyframes, durations, and easing curves |
+
+<br/>
+
+### ✨ Highlight Features
+
+- 🌈 **Color Palette Extractor**: Deeply traverses the selected element and all descendant nodes to extract unique colors (text, background, borders, fills) and displays interactive, copyable color swatch cards.
+- ⚠️ **Missing Attribute Warnings**: Accessibility checks that detect missing `alt` on `<img>`, missing labels/aria-labels on `<input>`, and empty links/buttons without accessible names, highlighting them in a dedicated warning box.
+- 📁 **Collapsible Accordion Panels**: Native `<details>`/`<summary>` sections with smooth rotating chevron icons make it easy to fold or unfold sections to skip large blocks and keep your workspace focused.
+- 🧪 **One-Click Sandbox Export**: Export any selected component directly into CodePen with full HTML, CSS, and Vanilla JS scaffolds.
+- 🤖 **AI-Powered Explanations**: Ask Google Gemini Flash to explain element purpose, structure, styling, and framework classes with multi-turn chat.
 
 <br/>
 
